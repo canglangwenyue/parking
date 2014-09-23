@@ -20,6 +20,6 @@
 			<attribute name="owner.project.facets" value="jst.web.jstl"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre7/lib/ext/RXTXcomm.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/RXTXcomm.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

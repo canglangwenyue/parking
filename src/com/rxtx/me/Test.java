@@ -16,14 +16,18 @@ public class Test implements Observer {
 
 	SerialReader sr = new SerialReader();
 
+	// public Test() {
+	// // openSerialPort("COM1"); // 要连接的串口。
+	// }
+
 	public Test() {
-		openSerialPort("COM1"); // 要连接的串口。
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		String mt = new String((byte[]) arg);
-		System.out.println("---" + mt); // 串口数据
+		System.out.println("message from serial:" + mt); // 打印接收到的串口数据
 	}
 
 	/**

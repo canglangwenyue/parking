@@ -157,17 +157,29 @@ public class SerialReader extends Observable implements Runnable,
 			e.printStackTrace();
 		}
 		switch (event.getEventType()) {
-		case SerialPortEvent.BI: // 10
-		case SerialPortEvent.OE: // 7
-		case SerialPortEvent.FE: // 9
-		case SerialPortEvent.PE: // 8
-		case SerialPortEvent.CD: // 6
-		case SerialPortEvent.CTS: // 3
-		case SerialPortEvent.DSR: // 4
-		case SerialPortEvent.RI: // 5
-		case SerialPortEvent.OUTPUT_BUFFER_EMPTY: // 2
+		case SerialPortEvent.BI: // 10 Break interrupt.
+		case SerialPortEvent.OE: // 7 Overrun error.
+		case SerialPortEvent.FE: // 9 Framing error.
+		case SerialPortEvent.PE: // 8 Parity error.
+		case SerialPortEvent.CD: // 6 Carrier detect.
+		case SerialPortEvent.CTS: // 3 Clear to send.
+		case SerialPortEvent.DSR: // 4 Data set ready.
+		case SerialPortEvent.RI: // 5 Ring indicator.
+		case SerialPortEvent.OUTPUT_BUFFER_EMPTY: // 2 Output buffer is empty.
+													// The event will be
+													// generated after a write
+													// is completed, when the
+													// system buffer becomes
+													// empty again.
 			break;
-		case SerialPortEvent.DATA_AVAILABLE: // 1
+		case SerialPortEvent.DATA_AVAILABLE: // 1 Data available at the serial
+												// port. This event will be
+												// generated once when new data
+												// arrive at the serial port.
+												// Even if the user doesn't read
+												// the data, it won't be
+												// generated again until next
+												// time new data arrive.
 			try {
 				// 多次读取,将所有数据读入
 				while (inputStream.available() > 0) {

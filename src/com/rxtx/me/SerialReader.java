@@ -87,14 +87,23 @@ public class SerialReader extends Observable implements Runnable,
 			isOpen = true;
 		} catch (PortInUseException e) {
 			// 端口"+serialParams.get( PARAMS_PORT ).toString()+"已经被占用";
+			System.out.println("端口" + serialParams.get(PARAMS_PORT).toString()
+					+ "已经被占用");
 		} catch (TooManyListenersException e) {
 			// "端口"+serialParams.get( PARAMS_PORT ).toString()+"监听者过多";
+			System.out.println("端口" + serialParams.get(PARAMS_PORT).toString()
+					+ "监听者过多");
 		} catch (UnsupportedCommOperationException e) {
 			// "端口操作命令不支持";
+			System.out.println("端口操作命令不支持");
 		} catch (NoSuchPortException e) {
 			// "端口"+serialParams.get( PARAMS_PORT ).toString()+"不存在";
+			System.out.println("端口" + serialParams.get(PARAMS_PORT).toString()
+					+ "不存在");
 		} catch (IOException e) {
 			// "打开端口"+serialParams.get( PARAMS_PORT ).toString()+"失败";
+			System.out.println("打开端口"
+					+ serialParams.get(PARAMS_PORT).toString() + "失败");
 		}
 		serialParams.clear();
 		Thread readThread = new Thread(this);
@@ -186,11 +195,11 @@ public class SerialReader extends Observable implements Runnable,
 					numBytes = inputStream.read(readBuffer);
 				}
 
-				// 打印接收到的字节数据的ASCII码
-				for (int i = 0; i < numBytes; i++) {
-					// System.out.println("msg[" + numBytes + "]: ["
-					// +readBuffer[i] + "]:"+(char)readBuffer[i]);
-				}
+				// 打印buffer的byte[]数组
+				// for (int i = 0; i < numBytes; i++) {
+				// System.out.println("打印buffer的byte[]数组" + "msg[" + i + "]: "
+				// + readBuffer[i]);
+				// }
 				// numBytes = inputStream.read( readBuffer );
 				changeMessage(readBuffer, numBytes);
 			} catch (IOException e) {

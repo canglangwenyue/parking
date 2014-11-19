@@ -33,6 +33,8 @@ public class getDataObserver implements Observer {
 			System.out.println("打印buffer的byte[]数组" + "msg[" + i + "]: "
 					+ msg[i]);
 		}
+		// 解析并处理数据
+		PaserMessage.Paser(msg);
 	}
 
 	/**

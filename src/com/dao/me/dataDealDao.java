@@ -8,11 +8,11 @@ public interface dataDealDao {
 
 	public void add(ParkData gh);
 
-	public void update(String name);
+	public void update(ParkData gh);
 
 	public boolean delete(String name);
 
 	public boolean checkUserExistsWithName(String gwName);
 
-	public List<ParkData> getgaswell();
+	public List<ParkData> getParkList();
 }

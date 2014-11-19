@@ -45,6 +45,12 @@ public class ParserDataUtil {
 		return out;
 	}
 
+	/**
+	 * 和校验
+	 * 
+	 * @param in
+	 * @return
+	 */
 	public static boolean checkMessage(byte[] in) {
 		int msgLength = in.length;
 		int cheskSum = 0;

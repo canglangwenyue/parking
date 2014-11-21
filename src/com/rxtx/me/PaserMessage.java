@@ -21,9 +21,8 @@ public class PaserMessage {
 	 * @param in
 	 * @return
 	 */
-	// static byte[] test = { (byte) 0x3a, (byte) 0x02, (byte) 0x00, (byte)
-	// 0xaa,
-	// (byte) 0x01, (byte) 0x00, (byte) 0xad, (byte) 0x3a };
+	static byte[] test = { (byte) 0x3a, (byte) 0x02, (byte) 0x02, (byte) 0xaa,
+			(byte) 0x03, (byte) 0x00, (byte) 0xad, (byte) 0x3a };
 
 	public static boolean Paser(byte[] in) {
 		List<String> addressList = new ArrayList<String>();
@@ -47,6 +46,8 @@ public class PaserMessage {
 		}
 		for (int i = 1; i < temp.length; i = i + 2) {
 			System.out.println("status" + temp[i]);
+			if (temp[i] == -86)
+				temp[i] = 1;
 			statusList.add(String.valueOf(temp[i]));
 		}
 		for (int i = 0; i < temp.length / 2; i++) {
@@ -73,8 +74,8 @@ public class PaserMessage {
 	 * 
 	 * @param args
 	 */
-	// public static void main(String[] args) {
-	// Paser(test);
-	// }
+	public static void main(String[] args) {
+		Paser(test);
+	}
 
 }
